@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'interfaz',
+    'control_calificaciones',
     'alumnos',
     'materias',
-    'usuarios'
+    'usuarios',
+    'interfaz'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'control_calificaciones.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['BASE_DIR', 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,96 @@
+{% include '../plantillas/menu.html' %}
+{% include '../plantillas/sidebar.html' %}
+{% load static %}
+{% block archivos_css %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+    integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+<section class="section">
+    <h2 class="text-danger">{{ventana}} </h2>
+    <div class="container">
+        <div class="justify-content-center row">
+            <div class="col-lg-12">
+                <div class="candidate-list-widgets mb-4">
+                    <form action="#" class="">
+                        <div class="g-2 row">
+
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="align-items-center row">
+
+                    <div class="col-lg-4">
+                        <div class="candidate-list-widgets">
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                </div>
+                                <div class="col-lg-6">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="candidate-list">
+
+                </div>
+            </div>
+                {% for datos in alumnos %}
+                    
+            <div class="candidate-list-box card mt-4">
+                <div class="p-4 card-body">
+                    <div class="align-items-center row">
+                        <div class="col-auto">
+                            <div class="candidate-list-images">
+                                <a href="#"><img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt=""
+                                        class="avatar-md img-thumbnail rounded-circle" /></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="candidate-list-content mt-3 mt-lg-0">
+                                <h5 class="fs-19 mb-0">
+                                    <a class="primary-link" href="#">{{datos.nombre}} {{datos.paterno}} {{datos.materno}}</a>
+                                    <span
+                                        class="badge bg-warning ms-1">{{datos.estatus}}</span>
+                                </h5>
+                                <p class="text-muted mb-2">
+                                    <span class="badge bg-soft-secondary fs-14 mt-1">Matricula:</span>
+                                    <span
+                                    class="badge bg-soft-secondary fs-14 mt-1">{{datos.matricula}}</span>
+                                    
+                                </p>
+                                <ul class="list-inline mb-0 text-muted">
+                                    <li class="list-inline-item"><i class="mdi mdi-wallet"></i>Cuatrimestre Actual / {{datos.cuatrimestre}} </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mt-2 mt-lg-0 d-flex flex-wrap align-items-start gap-1">
+                               <button class="btn btn-success">Modificar Datos</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    </div>
+
+    </div>
+</section>
+{% block archivos_js %}
+{% endblock %}

@@ -1,0 +1,87 @@
+{% include '../plantillas/menu.html' %}
+{% include '../plantillas/sidebar.html' %}
+{% load static %}
+{% block archivos_css %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<div class="container-xl px-4 mt-4">
+    <!-- Account page navigation-->
+    
+    <hr class="mt-0 mb-4">
+    <div class="row">
+       
+        <div class="col-xl-12">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">{{ventana}}</div>
+                <div class="card-body">
+                    <form class="" method="post" action="">
+						{% csrf_token %}
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputUsername"><strong>Cuatrimestre:</strong></label>
+                            <select name="cuatrimestre" id="" class="form-control cuatri">
+								<option value="0">[Selecciona Cuatrimestre]</option>
+								{% for cuatri in semestre %}
+								<option value="{{cuatri}}">{{cuatri}}</option>
+								{% endfor %}
+							</select>
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName"><strong>Materia:</strong></label>
+                                <select name="materia" id="" class="form-control materia">
+
+								</select>
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName"><strong>Alumno:</strong></label>
+                                <input class="form-control" name="alumno" id="inputLastName" type="text"  >
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName"><strong>Calificacion #1:</strong></label>
+                                <input class="form-control" name="c1" id="inputOrgName" placeholder="Calificacion" type="text" >
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation"><strong>Calificacion #2:</strong></label>
+                                <input class="form-control" name="c2" id="inputLocation" type="text" placeholder="Calificacion" >
+                            </div>
+                        </div>
+                        <!-- Form Group (email address)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputEmailAddress"><strong>Final:</strong></label>
+                            <input class="form-control" name="final" id="inputEmailAddress" type="text" placeholder="Calificacion Final" >
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone"><strong>Calificacion Extra</strong></label>
+                                <input class="form-control" name="extra" id="inputPhone" type="text" placeholder="Calificacion Extra" >
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            
+                        </div>
+                        <!-- Save changes button-->
+                        <button class="btn btn-primary" type="button">Guardar Callificacion</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block archivos_js %}
+{% endblock %}

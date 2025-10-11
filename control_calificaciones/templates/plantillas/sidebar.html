@@ -1,322 +1,62 @@
-{% load static %}
+{% load static %} 
+{% include '../plantillas/menu.html' %} 
 {% block sidebar %}
-<div class="wrapper">
-    <!-- Sidebar -->
-    <div class="sidebar" data-background-color="dark">
-      <div class="sidebar-logo">
-        <!-- Logo Header -->
-        <div class="logo-header" data-background-color="dark">
-       
-          <div class="nav-toggle">
-            <button class="btn btn-toggle toggle-sidebar">
-              <i class="gg-menu-right"></i>
-            </button>
-            <button class="btn btn-toggle sidenav-toggler">
-              <i class="gg-menu-left"></i>
-            </button>
-          </div>
-          <button class="topbar-toggler more">
-            <i class="gg-more-vertical-alt"></i>
-          </button>
-        </div>
-        <!-- End Logo Header -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Menu Navegacion</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="sidebar-wrapper scrollbar scrollbar-inner">
-        <div class="sidebar-content">
-          <ul class="nav nav-secondary">
-            
-            <li class="nav-section">
-              <span class="sidebar-mini-icon">
-                <i class="fa fa-ellipsis-h"></i>
-              </span>
-              <h4 class="text-section">Menu Principal</h4>
-            </li>
-            <li class="nav-item">
-              <a data-bs-toggle="collapse" href="#base">
-                <i class="fas fa-layer-group"></i>
-                <p>Alumnos</p>
-                <span class="caret"></span>
-              </a>
-              <div class="collapse" id="base">
-                <ul class="nav nav-collapse">
-                  <li>
-                    <a href="{% url 'alumnos' %}">
-                      <span class="sub-item">Captura</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{% url 'consulta_alumnos' %}">
-                      <span class="sub-item">Consulta</span>
-                    </a>
-                  </li>
- 
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                <i class="fas fa-th-list"></i>
-                <p>Calificaciones</p>
-                <span class="caret"></span>
-              </a>
-              <div class="collapse" id="sidebarLayouts">
-                <ul class="nav nav-collapse">
-                  <li>
-                    <a href="sidebar-style-2.html">
-                      <span class="sub-item">Captura</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="icon-menu.html">
-                      <span class="sub-item">Consulta</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a data-bs-toggle="collapse" href="#forms">
-                <i class="fas fa-pen-square"></i>
-                <p>Materias</p>
-                <span class="caret"></span>
-              </a>
-              <div class="collapse" id="forms">
-                <ul class="nav nav-collapse">
-                  <li>
-                    <a href="forms/forms.html">
-                      <span class="sub-item">Consulta</span>
-                    </a>
-                  </li>
-                  
-                </ul>
-              </div>
-            </li>
-            
-            <li class="nav-item">
-              <a data-bs-toggle="collapse" href="#maps">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Usuarios</p>
-                <span class="caret"></span>
-              </a>
-              <div class="collapse" id="maps">
-                <ul class="nav nav-collapse">
-                  <li>
-                    <a href="{% url 'alta_usuarios' %}">
-                      <span class="sub-item">Nuevo</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{% url 'chikitin' %}">
-                      <span class="sub-item">Consulta</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          
-          
-           
-           
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- End Sidebar -->
-
-    <div class="main-panel">
-      <div class="main-header">
-        <div class="main-header-logo">
-          <!-- Logo Header -->
-          <div class="logo-header" data-background-color="light">
-            <a href="index.html" class="logo">
-              <img
-                src="assets/img/kaiadmin/logo_light.svg"
-                alt="navbar brand"
-                class="navbar-brand"
-                height="20"
-              />
-            </a>
-            <div class="nav-toggle">
-              <button class="btn btn-toggle toggle-sidebar">
-                <i class="gg-menu-right"></i>
-              </button>
-              <button class="btn btn-toggle sidenav-toggler">
-                <i class="gg-menu-left"></i>
-              </button>
-            </div>
-            <button class="topbar-toggler more">
-              <i class="gg-more-vertical-alt"></i>
-            </button>
-          </div>
-          <!-- End Logo Header -->
-        </div>
-        <!-- Navbar Header -->
-        <nav
-          class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
-        >
-          
-        </nav>
-        <!-- End Navbar -->
-      </div>
-
-      <div class="container">
-        <div class="page-inner">
-          <div
-            class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
-          >
-            <div>
-              <h3 class="fw-bold mb-3">{{titulo}}</h3>
-              
-            </div>
-            <div class="ms-md-auto py-2 py-md-0">
-              <a href="#" class="btn btn-label-info btn-round me-2">Manage</a>
-              <a href="#" class="btn btn-primary btn-round">Add Customer</a>
-            </div>
-          </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'sistema' %}">Inicio</a>
+          </li>
          
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card card-round">
-                <div class="card-header">
-                  <div class="card-head-row card-tools-still-right">
-                    <h4 class="card-title">Users Geolocation</h4>
-                    <div class="card-tools">
-                      <button
-                        class="btn btn-icon btn-link btn-primary btn-xs"
-                      >
-                        <span class="fa fa-angle-down"></span>
-                      </button>
-                      <button
-                        class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"
-                      >
-                        <span class="fa fa-sync-alt"></span>
-                      </button>
-                      <button
-                        class="btn btn-icon btn-link btn-primary btn-xs"
-                      >
-                        <span class="fa fa-times"></span>
-                      </button>
-                    </div>
-                  </div>
-                  <p class="card-category">
-                    Map of the distribution of users around the world
-                  </p>
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="table-responsive table-hover table-sales">
-                        <table class="table">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <div class="flag">
-                                  <img
-                                    src="assets/img/flags/id.png"
-                                    alt="indonesia"
-                                  />
-                                </div>
-                              </td>
-                              <td>Indonesia</td>
-                              <td class="text-end">2.320</td>
-                              <td class="text-end">42.18%</td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="flag">
-                                  <img
-                                    src="assets/img/flags/us.png"
-                                    alt="united states"
-                                  />
-                                </div>
-                              </td>
-                              <td>USA</td>
-                              <td class="text-end">240</td>
-                              <td class="text-end">4.36%</td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="flag">
-                                  <img
-                                    src="assets/img/flags/au.png"
-                                    alt="australia"
-                                  />
-                                </div>
-                              </td>
-                              <td>Australia</td>
-                              <td class="text-end">119</td>
-                              <td class="text-end">2.16%</td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="flag">
-                                  <img
-                                    src="assets/img/flags/ru.png"
-                                    alt="russia"
-                                  />
-                                </div>
-                              </td>
-                              <td>Russia</td>
-                              <td class="text-end">1.081</td>
-                              <td class="text-end">19.65%</td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="flag">
-                                  <img
-                                    src="assets/img/flags/cn.png"
-                                    alt="china"
-                                  />
-                                </div>
-                              </td>
-                              <td>China</td>
-                              <td class="text-end">1.100</td>
-                              <td class="text-end">20%</td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="flag">
-                                  <img
-                                    src="assets/img/flags/br.png"
-                                    alt="brazil"
-                                  />
-                                </div>
-                              </td>
-                              <td>Brasil</td>
-                              <td class="text-end">640</td>
-                              <td class="text-end">11.63%</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mapcontainer">
-                        <div
-                          id="world-map"
-                          class="w-100"
-                          style="height: 300px"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          
-        </div>
+          <li class="nav-item dropdown"></li>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Alumnos
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="{% url 'alumnos' %}">Captura Alumno</a></li>
+              <li><a class="dropdown-item" href="{% url 'consulta_alumnos' %}">Consulta Alumno</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Calificaciones
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="{% url 'captura_calificacion' %}">Captura Calificacion</a></li>
+              <li><a class="dropdown-item" href="{% url 'consulta_calificacion' %}">Consulta Calificacion</a></li>
+             
+            </ul>
+          </li>
+          <li class="nav-item dropdown"></li>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Usuarios
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="{% url 'alta_usuarios' %}">Captura Usuario</a></li>
+              <li><a class="dropdown-item" href="{% url 'usuarios_lista' %}">Listado Usuarios</a></li>
+             
+              
+            </ul>
+          </li>
+        </ul>
+       
       </div>
-
-      <footer class="footer">
-        
-      </footer>
     </div>
-
-    <!-- Custom template | don't include it in your project! -->
-    
-    <!-- End Custom template -->
   </div>
+</nav>
+
+
+
 
   {% endblock %}
+

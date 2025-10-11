@@ -1,0 +1,114 @@
+{% include '../plantillas/menu.html' %}
+{% include '../plantillas/sidebar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ventana}}</title>
+  {% block archivos_css %}
+  {% endblock %}
+</head>
+
+<body>
+  {% block sidebar %}
+  {% endblock %}
+
+  <p class="h4 text-muted"></p>
+  <div class="section bg-theme-color-light overlay-dark overlay-opacity-8 bg-cover lazy" data-loaded="true"
+    style="background-image: url(https://bootdey.com/img/Content/bg1.jpg);">
+
+    <div class="container">
+
+      <div class="row text-center-md text-center-xs d-middle justify-content-start">
+
+        <div class="col-12 col-lg-6 mb-5 text-white aos-init aos-animate" data-aos="fade-in" data-aos-delay="0"
+          data-aos-offset="0">
+
+          <!-- main title -->
+          <h1 class="display-4 fw-bold mb-0">
+            <span class="d-inline-block">
+
+
+
+              <span class="text-danger">{{ventana}} </span>
+          </h1>
+
+          <!-- slogan -->
+          <p class="h3 fw-normal mb-0">
+            Formulario de Datos
+          </p>
+
+        </div>
+
+        <div class="col-12 col-lg-6 text-align-end text-center-md text-center-xs aos-init aos-animate"
+          data-aos="fade-in" data-aos-delay="50" data-aos-offset="0">
+
+          <div class="d-inline-block bg-white shadow-primary-xs rounded p-4 p-md-5 w-100 max-w-450 text-align-start">
+
+            <h2 class="h5 mb-5">
+              <i class="fi fi-homeadvisor"></i>
+              <span class="d-inline-block px-2">Formulario de Captura</span>
+            </h2>
+
+            <form  class="bs-validate" method="post" action="{% url 'guarda_usuarios' %}">
+              {% csrf_token %}
+              <div class="form-floating mb-3">
+                <label for="">Nombre Usuario</label>
+                <input  type="text" name="nombre" value="" class="form-control">
+
+              </div>
+              <div class="form-floating mb-3">
+                <label for="">Paterno</label>
+                <input  type="text" name="paterno" value="" class="form-control">
+
+              </div>
+              
+                <div class="form-floating mb-3">
+                  <label for="">Materno</label>
+                  <input  type="text" name="materno" value="" class="form-control">
+
+                </div>
+                
+                  <div class="form-floating mb-3">
+                  
+                    <select name="estatus" id=""  class="form-control">
+                      <option value="0">[Selecciona un Estatus]</option>
+                      <option value="1">Activo</option>
+                      <option value="2">Inactivo</option>
+                    </select>
+                  </div>
+                  
+                    <div class="form-floating mb-3">
+                      <label for="">Usuario</label>
+                      <input  type="text" name="usuario" value="" class="form-control">
+    
+                    </div>
+                   
+                      <div class="form-floating mb-3">
+                        <label for="">Clave</label>
+                        <input  type="password" name="clave" value="" class="form-control">
+      
+                      </div>
+                </div>
+<p>
+                <button type="submit" class="btn w-100 btn-lg btn-danger bg-gradient-danger">
+                  <i class="fi fi-search"></i>
+                  Guardar Datos
+                </button>
+              </p>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+</body>
+{% block archivos_js %}
+{% endblock %}
+
+</html>

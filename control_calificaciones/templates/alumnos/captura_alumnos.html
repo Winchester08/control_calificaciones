@@ -33,7 +33,7 @@
 
 
 
-                            <span class="text-danger">{{ventana}} </span> 
+                            <span class="text-danger">{{ventana}} </span>
                     </h1>
 
                     <!-- slogan -->
@@ -54,45 +54,59 @@
                             <span class="d-inline-block px-2">Formulario de Captura</span>
                         </h2>
 
-                        <form novalidate="" class="bs-validate" method="get" action="#">
-
-                            <div class="clearfix mb-3">
-                                <label class="form-radio form-radio-secondary">
-                                    <input type="radio" name="s_type" value="1" checked="">
-                                    <i></i> Buy
-                                </label>
-
-                                <label class="form-radio form-radio-secondary ml-3">
-                                    <input type="radio" name="s_type" value="2">
-                                    <i></i> Rent
-                                </label>
-                            </div>
-
+                        <form novalidate="" class="bs-validate" method="POST" action="{% url 'alumno_guarda' %}">
+                                {% csrf_token %}
                             <div class="form-floating mb-3">
-                                <input placeholder="Address or Zipcode" id="s_address" type="text" value=""
+                                <input  id="s_address" name="matricula" type="text" value=""
                                     class="form-control">
-                                <label for="s_address">Address or Zipcode</label>
+                                <label for="s_address">Matricula</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input placeholder="Address or Zipcode" id="s_address" type="text" value=""
-                                    class="form-control">
-                                <label for="s_address">Address or Zipcode</label>
+                                <select name="cuatrimestre" id="" class="form-control">
+                                    <option value="0">--[Selecciona un Cuatrimestre]--</option>
+                                    {% for datos in cuatris %}
+                                    <option value="{{datos}}">{{datos}}</option>
+                                    {% endfor%} 
+                                </select>
+
                             </div>
                             <div class="form-floating mb-3">
                                 <div class="form-floating mb-3">
-                                    <input placeholder="Address or Zipcode" id="s_address" type="text" value=""
+                                    <input placeholder="Nombre" id="s_address" type="text" value="" name="nombre"
                                         class="form-control">
-                                    <label for="s_address">Address or Zipcode</label>
+                                    <label for="s_address">Nombre Alumno</label>
                                 </div>
                             </div>
-                            <input placeholder="Address or Zipcode" id="s_address" type="text" value=""
-                                class="form-control">
-                            <label for="s_address">Address or Zipcode</label>
+                            <div class="form-floating mb-3"></div>
+                            <div class="form-floating mb-3">
+                                <input placeholder="Apellido Paterno" id="s_address" type="text" value="" name="paterno"
+                                    class="form-control">
+                                <label for="s_address">Apellido Paterno</label>
+                            </div>
+
+                            <div class="form-floating mb-3"></div>
+                            <div class="form-floating mb-3">
+                                <input placeholder="Apellido Materno" id="s_address" type="text" value="" name="materno"
+                                    class="form-control">
+                                <label for="s_address">Apellido Materno</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <select name="estatus" id="" class="form-control">
+                                    <option value="0">--[Selecciona un Estatus]--</option>
+                                    <option value="1">Regular</option>
+                                    <option value="2">Irregular</option>
+                                    <option value="3">Condicionado</option>
+                                    
+                                </select>
+
+                            </div>
+
                     </div>
 
                     <button type="submit" class="btn w-100 btn-lg btn-danger bg-gradient-danger">
                         <i class="fi fi-search"></i>
-                        Search
+                       Guardar Alumno
                     </button>
                     </form>
 

@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from . models import materias, calificaciones
+admin.site.register(materias)
+admin.site.register(calificaciones)

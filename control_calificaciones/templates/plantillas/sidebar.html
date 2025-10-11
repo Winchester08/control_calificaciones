@@ -1,9 +1,6 @@
 {% load static %} 
 {% include '../plantillas/menu.html' %} 
 {% block sidebar %}
-
-
-
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Menu Navegacion</a>
@@ -45,8 +42,8 @@
              Usuarios
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="#">Captura Usuario</a></li>
-              
+              <li><a class="dropdown-item" href="{% url 'alta_usuarios' %}">Captura Usuario</a></li>
+              <li><a class="dropdown-item" href="{% url 'usuarios_lista' %}">Listado Usuarios</a></li>
              
               
             </ul>

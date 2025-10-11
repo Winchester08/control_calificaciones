@@ -1,0 +1,51 @@
+{% include '../plantillas/menu.html' %}
+{% include '../plantillas/sidebar.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ventana}}</title>
+    {% block archivos_css %}
+    {% endblock %}
+  </head>
+  
+  <body>
+    {% block sidebar %}
+  {% endblock %}
+  <div class="container"></div>
+  
+
+
+    <div class="text-center mb-5">
+      <h3>Jobs openning</h3>
+      <p class="lead">Eros ante urna tortor aliquam nisl magnis quisque hac</p>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+       
+      </div>
+    </div>
+    {% for usuarios in listado %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column flex-lg-row">
+          
+          <div class="row flex-fill">
+            <div class="col-sm-5">
+              <h4 class="h5">Usuario: {{usuarios.usuario }}</h4>
+              <span class="badge bg-secondary">{{usuarios.nombre}} {{usuarios.paterno}} {{usuarios.materno}}</span> 
+              <span class="badge bg-success">Estatus {{usuarios.estatus}}</span>
+            </div>
+            
+            <div class="col-sm-3 text-lg-end">
+              <a href="#" class="btn btn-primary stretched-link">Apply</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   {% endfor %}
+  </div>
+</body>
+{% block archivos_js %}
+{% endblock %}
